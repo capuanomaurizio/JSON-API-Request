@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         requestButton = (Button)findViewById(R.id.requestButton);
         requestResult = (TextView)findViewById(R.id.requestResult);
 
+        //requestButton.setVisibility();
+
         requestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,14 +49,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         requestResult.setText(response);
-                        Log.d("PROBLEMISSIMOOOOOO", response);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         requestResult.setText("Errore nella richiesta");
-                        Log.d("PROBLEMISSIMOOOOOO", "ERROR");
                     }
                 });
         queue.add(stringRequest);
